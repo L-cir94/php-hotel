@@ -8,32 +8,44 @@ Aggiungere un form ad inizio pagina che tramite una richiesta GET permetta di fi
 Aggiungere un secondo campo al form che permetta di filtrare gli hotel per voto (es. inserisco 3 ed ottengo tutti gli hotel che hanno un voto di tre stelle o superiore)
 NOTA: deve essere possibile utilizzare entrambi i filtri contemporaneamente (es. ottenere una lista con hotel che dispongono di parcheggio e che hanno un voto di tre stelle o superiore)
 Se non viene specificato nessun filtro, visualizzare come in precedenza tutti gli hotel. */
-$hotels= [
+$hotels = [
+
     [
-        "name" => "Burj Al Arab Hotel",
-        "parkingLot"  => "true",
-        "vote"  => 5,
+        'name' => 'Hotel Belvedere',
+        'description' => 'Hotel Belvedere Descrizione',
+        'parking' => true,
+        'vote' => 4,
+        'distance_to_center' => 10.4
     ],
     [
-        "name" => "Plaza Hotel",
-        "parkingLot"  => "true",
-        "vote"  => 5,
+        'name' => 'Hotel Futuro',
+        'description' => 'Hotel Futuro Descrizione',
+        'parking' => true,
+        'vote' => 2,
+        'distance_to_center' => 2
     ],
     [
-        "name" => "Albergo Hotel De Rossi",
-        "parkingLot"  => "false",
-        "vote"  => 2,
+        'name' => 'Hotel Rivamare',
+        'description' => 'Hotel Rivamare Descrizione',
+        'parking' => false,
+        'vote' => 1,
+        'distance_to_center' => 1
     ],
     [
-        "name" => "Hotel Kensington",
-        "parkingLot"  => "true",
-        "vote"  => 4,
+        'name' => 'Hotel Bellavista',
+        'description' => 'Hotel Bellavista Descrizione',
+        'parking' => false,
+        'vote' => 5,
+        'distance_to_center' => 5.5
     ],
     [
-        "name" => "Hotel Milano Ornato",
-        "parkingLot"  => "false",
-        "vote"  => 3,
+        'name' => 'Hotel Milano',
+        'description' => 'Hotel Milano Descrizione',
+        'parking' => true,
+        'vote' => 2,
+        'distance_to_center' => 50
     ],
+
 ];
 /* foreach ($hotels as $key => $value) {
     echo "<strong>$key</strong> ";
@@ -52,14 +64,52 @@ $hotels= [
     <title>php-hotel</title>
 </head>
 <body>
-<?php
-
-foreach ($hotels as $key => $value) {
-
+<header class="bg-dark text-white">
+    <div class="container">
+        <div class="row">
+        <h1>Hotels</h1>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="jumbotron">
+        <h1 class="display-3">Welcome to our hotels</h1>
+        <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae quas perferendis veniam, eius dolorum sapiente tempore hic, voluptatem, minima aliquid nulla. Ipsam, provident! Fugit tempore quam sunt consequuntur rem debitis!</p>
+        <hr class="my-2">
+        <?php foreach ($hotels as $key => $value){
+    echo "<strong>$key</strong> ";
     foreach ($value as $key => $value) {
         echo "<p><strong>$key</strong>: $value</p>";
     }
-}; 
-?>
+};?>
+        <section class="hotels">
+            <div class="table-responsive">
+                <table class="table table-primary">
+                    <thead>
+                        <tr>
+                            <th scope="col">Descrizione Hotel</th>
+                            <th scope="col">Parcheggio</th>
+                            <th scope="col">voto</th>
+                            <th scope="col">Distanza dal centro abitato</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="">
+                            <td scope="row">R1C1</td>
+                            <td>R1C2</td>
+                            <td>R1C3</td>
+                        </tr>
+                        <tr class="">
+                            <td scope="row">Item</td>
+                            <td>Item</td>
+                            <td>Item</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </section>    
+    </div>
+</main>
 </body>
 </html>
