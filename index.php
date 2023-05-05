@@ -96,7 +96,14 @@ $hotels = [
                                     <tr class="">
                                         <td scope="row"><?= $value['name'] ?></td>
                                         <td><?= $value['description'] ?></td>
-                                        <td><?= $value['parking'] ?></td>
+                                        <td>
+                                            <?php if ($value['parking']) : ?>
+                                                disponibile
+                                            <?php else :?>
+                                                non disponibile
+                                            <?php endif; ?>
+                                           <!--  <?= $value['parking'] ?> -->
+                                        </td>
                                         <td><?= $value['vote'] ?></td>
                                         <td><?= $value['distance_to_center'] ?></td>
                                     </tr>
